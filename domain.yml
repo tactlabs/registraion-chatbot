@@ -1,0 +1,100 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - register_bdb
+  
+forms:
+  bdb_form:
+    student_name:
+      - type: from_text
+    clg_name:
+      - type: from_text
+    dept_name:
+      - type: from_text
+    stud_year:
+      - type: from_text
+    os_type:
+      - type: from_text
+    email_id:
+      - type: from_text
+
+slots:
+  student_name:
+    type: text
+  clg_name:
+    type: text
+  dept_name:
+    type: text
+  stud_year:
+    type: text
+  os_type:
+    type: text
+  email_id:
+    type: text
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+
+  utter_ask_student_name:
+  - text: "What is your full name?"
+
+  utter_ask_clg_name:
+  - text: "Which university/college are you studying in?"
+
+  utter_ask_dept_name:
+  - text: "Which course are you pursuing?"
+
+  utter_ask_stud_year:
+  - text: "Which year are you currently in?"
+
+  utter_ask_os_type:
+  - text: "What Operating System(s) do you use?"
+
+  utter_ask_email_id:
+  - text: "Please share your email ID"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_first_name:
+  - text: "whats ur first name?"
+
+  utter_ask_last_name:
+  - text: "whats ur last name?"
+
+  utter_submit:
+  - text: "Congratulations on registering for the Big data boss hackaton!!!"
+
+  utter_slots_values:
+  - text: "\nRegistration details: \nName: {student_name} \nCollege name: {clg_name} \nCourse: {dept_name} \nYear: {stud_year} \nOS: {os_type} \nemail-ID: {email_id}"
+
+actions:
+- validate_bdb_form
+- action_reset_form
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
